@@ -18,14 +18,25 @@ for (a = 48; a <= 56; a++)
 
 for (b = i; b <= 57; b++)
 {
-for (c = a + 1; c <= 57; c++)
+for (c = 48; c <= 57; c++)
 {
+
 putchar(i);
 putchar(a);
 
 putchar(32);
 
 putchar(b);
+
+
+if (i == b)
+{
+
+if (c <= a)
+c = a + 1;
+
+}
+
 putchar(c);
 
 if (i == 57 && a == 56 && b == 57 && c == 57)

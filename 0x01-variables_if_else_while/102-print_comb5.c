@@ -20,9 +20,7 @@ for (c = 48; c <= 57; c++)
 {
 putchar(i);
 putchar(a);
-
 putchar(32);
-
 putchar(b);
 
 if (i == b)
@@ -32,7 +30,6 @@ c = a + 1;
 }
 
 putchar(c);
-
 if (i == 57 && a == 56 && b == 57 && c == 57)
 {
 putchar(10);
@@ -44,6 +41,8 @@ putchar(32);
 }
 }
 }
+if (i == 48)
+i = 49;
 }
 }
 return (0);

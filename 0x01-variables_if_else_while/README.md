@@ -5,7 +5,7 @@
 - if the number is 0: it is zero.
 - if the number is less than 0: it is negative.
 
-**1-last_digit.c:** Also has a random `n` variable
+**1-last_digit.c:** Also has a random `n` variable  
 The output of the program is:
 - The string `Last digit of`, followed by
 - `n`, followed by

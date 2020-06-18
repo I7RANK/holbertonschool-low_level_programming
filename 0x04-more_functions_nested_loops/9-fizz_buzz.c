@@ -3,6 +3,7 @@
 /**
  * main - the test of "Fizz-Buzz"
  * Description: followed by a new line
+ * Return: return 0
  */
 int main(void)
 {

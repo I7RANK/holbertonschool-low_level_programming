@@ -25,7 +25,7 @@ char *leet(char *s1)
 		{'l', '1'},
 		{'L', '1'}
 	};
-	for (i = 0; s1[i] != '\0'; i++)
+	for (i = 0; s1[i]; i++)
 	{
 		for (b = 0; replace[b][0]; b++)
 		{

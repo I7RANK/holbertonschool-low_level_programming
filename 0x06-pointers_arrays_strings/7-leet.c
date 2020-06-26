@@ -12,8 +12,8 @@
  */
 char *leet(char *s1)
 {
-	int i, j;
-	char code[10][2] = {
+	int i, b;
+	char replace[10][2] = {
 		{'a', '4'},
 		{'A', '4'},
 		{'e', '3'},
@@ -25,17 +25,16 @@ char *leet(char *s1)
 		{'l', '1'},
 		{'L', '1'}
 	};
-	for (i = 0; s1[i]; i++)
+	for (i = 0; s1[i] != '\0'; i++)
 	{
-		for (j = 0; code[j][0]; j++)
+		for (b = 0; replace[b][0]; b++)
 		{
-			if (s1[i] == code[j][0])
+			if (s1[i] == replace[b][0])
 			{
-				s1[i] = code[j][1];
+				s1[i] = replace[b][1];
 			}
 
 		}
-
 	}
 
 	return (s1);

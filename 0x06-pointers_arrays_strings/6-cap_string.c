@@ -11,6 +11,13 @@ char *cap_string(char *a)
 {
 	int i = 0, isupp, capi = 0;
 
+	if (a[0] >= 97 && a[0] <= 122)
+	{
+		isupp = a[0];
+		isupp = isupp - 32;
+		a[0] = isupp;
+	}
+
 	while (a[i] != '\0')
 	{
 		isupp = a[i];

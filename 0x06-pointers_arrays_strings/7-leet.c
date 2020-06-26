@@ -13,7 +13,7 @@
 char *leet(char *a)
 {
 	char letter[] = "aAeEoOtTlL";
-	char replace[] = "43071";
+	char replace[] = "4433007711";
 	int i, b;
 
 	while (a[i] != '\0')
@@ -21,7 +21,7 @@ char *leet(char *a)
 		for (b = 0; b < 10; b++)
 		{
 			if (a[i] == letter[b])
-				a[i] = replace[(b / 2)];
+				a[i] = replace[b];
 		}
 		i++;
 	}

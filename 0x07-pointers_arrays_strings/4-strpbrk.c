@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 /**
  * _strpbrk - searches a string for any of a set of bytes.
  * Description: function locates the first occurrence in the string s of any

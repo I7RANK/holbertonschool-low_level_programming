@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_cheesboard - prints the cheesboard
+ * print_chessboard - prints the cheesboard
  * Description: just print
  * @a: is the array of the chessboard
  * Return: no return

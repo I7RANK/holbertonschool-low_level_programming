@@ -26,7 +26,13 @@ char *_strpbrk(char *s, char *accept)
 			}
 		}
 		if (brk == 1)
+		{
 			break;
+		}
+		else
+		{
+			ret = '\0';
+		}
 	}
 	return (ret);
 }

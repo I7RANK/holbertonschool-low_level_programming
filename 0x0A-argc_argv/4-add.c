@@ -3,11 +3,11 @@
 #include <stdio.h>
 
 /**
- * main - prints the multiplies of two numbers
+ * main - adds positive numbers
  * Description: followed by a new line
  * @argc: is the number of command line arguments
  * @argv: is an array containing the program command line arguments
- * Return: 1 in case of error or 0 otherwise
+ * Return: 1 if one of the number contains symbols that are not digits
  */
 
 int main(int argc, char *argv[])

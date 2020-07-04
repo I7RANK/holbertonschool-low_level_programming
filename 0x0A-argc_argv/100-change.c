@@ -14,7 +14,7 @@
 
 int main(int argc, char *argv[])
 {
-	int cents, welto;
+	int cents, welto = 0;
 
 	if (argc != 2)
 	{
@@ -23,6 +23,13 @@ int main(int argc, char *argv[])
 	}
 
 	cents = atoi(argv[1]);
+
+	if (cents <= 0)
+	{
+                printf("0\n");
+                return (0);
+        }
+
 	while (cents != 0)
 	{
 		if (cents >= 25)

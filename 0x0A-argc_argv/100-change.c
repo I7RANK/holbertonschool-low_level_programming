@@ -23,14 +23,7 @@ int main(int argc, char *argv[])
 	}
 
 	cents = atoi(argv[1]);
-
-	if (cents <= 0)
-	{
-                printf("0\n");
-                return (0);
-        }
-
-	while (cents != 0)
+	while (cents > 0)
 	{
 		if (cents >= 25)
 		{

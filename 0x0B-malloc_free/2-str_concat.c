@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * str_concat - concatenates two strings
  * @s1: string 1
@@ -15,10 +15,12 @@ char *str_concat(char *s1, char *s2)
 
 	for (ln = 0; s1[ln]; ln++)
 	{}
+
 	for (i = 0; s2[i]; i++)
 	{}
 
-	s = malloc((ln + i - 1) * sizeof(char));
+	printf("%d, %d\n", ln, i);
+	s = malloc((ln + i) * sizeof(char));
 	if (s == NULL)
 		return (NULL);
 

@@ -1,7 +1,14 @@
 #ifndef DOG_H
 #define DOG_H
 
-typedef struct dog {
+/**
+ * struct dog - creates a type to saves dogs
+ * @name: is the name
+ * @age: is the age
+ * @owner: is the owner
+ */
+typedef struct dog
+{
 	char *name;
 	float age;
 	char *owner;

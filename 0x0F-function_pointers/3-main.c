@@ -6,7 +6,7 @@
  * main - request the data and call the function
  * @argc: number of arguments
  * @argv: array of arguments
- * return: 98 if the numbers of arguments is incorrect
+ * Return: 98 if the numbers of arguments is incorrect
  * 99 if the operator it's none of the above
  * 100 if the user try dividing (/ or %) by 0
  */

@@ -15,6 +15,7 @@ void print_all(const char * const format, ...)
 	va_list valist;
 	int i = 0, j;
 	char *sepa = "";
+
 	select_p select[] = {
 		{"c", print_c},
 		{"i", print_i},

@@ -25,7 +25,7 @@ void print_all(const char * const format, ...)
 
 	va_start(valist, format);
 
-	while (format[i])
+	while (format[i] != NULL || format[i] != '\0')
 	{
 		j = 0;
 		while (j <= 3)
@@ -84,10 +84,7 @@ void print_s(va_list copy)
 {
 	char *va = va_arg(copy, char *);
 
-	if (*va == '\0')
-	{
-		printf("(nil)");
-		return;
-	}
+	if (va == NULL)
+		va = "(nil)";
 	printf("%s", va);
 }

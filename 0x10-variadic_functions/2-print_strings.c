@@ -23,9 +23,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (i = 0; i < n; i++)
 	{
 		s = va_arg(inumbers, char *);
-		if (s == NULL)
-			printf("(nil)");
-		else if (i == 0)
+		if (*s == '\0')
+			s = "(nil)";
+		if (i == 0)
 			printf("%s", s);
 		else
 			printf("%s%s", separator, s);

@@ -53,7 +53,6 @@ void print_all(const char * const format, ...)
 void print_c(va_list copy)
 {
 	printf("%c", va_arg(copy, int));
-	va_end(copy);
 }
 
 /**
@@ -64,7 +63,6 @@ void print_c(va_list copy)
 void print_i(va_list copy)
 {
 	printf("%d", va_arg(copy, int));
-	va_end(copy);
 }
 
 /**
@@ -75,7 +73,6 @@ void print_i(va_list copy)
 void print_f(va_list copy)
 {
 	printf("%f", va_arg(copy, double));
-	va_end(copy);
 }
 
 /**
@@ -90,6 +87,5 @@ void print_s(va_list copy)
 	if (va == NULL)
 		va = "(nil)";
 
-		printf("%s", va);
-	va_end(copy);
+	printf("%s", va);
 }

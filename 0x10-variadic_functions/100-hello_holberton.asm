@@ -1,9 +1,11 @@
-sección .data
+global  _main
+	    extern  _printf
 
-	mensaje db "Hola, mundo!" , 10
-
-	sección .text
-
-	global  _start
-_start:
-	mov rax , 1 mov rdi , 1 mov rsi , message mov rdx , 14 syscall
+	    section .text
+_main:
+	    push    message
+	    syscall    _printf
+	    add     esp, 4
+	    ret
+message:
+	    db  'Hello, World', 10, 0

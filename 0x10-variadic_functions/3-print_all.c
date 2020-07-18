@@ -40,8 +40,8 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 
-	printf("\n");
 	va_end(valist);
+	printf("\n");
 }
 
 /**
@@ -85,6 +85,7 @@ void print_f(va_list copy)
 void print_s(va_list copy)
 {
 	char *va = va_arg(copy, char *);
+
 	if (*va == '\0')
 		printf("(nil)");
 	else

@@ -12,8 +12,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *s;
 
-	if (separator == NULL || n == 0)
+	if (n == 0)
 		return;
+
+	if (separator == NULL)
+		sparador = "";
 
 	va_start(inumbers, n);
 
@@ -29,7 +32,8 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	if (*s == '\0')
 		printf("(nil)");
 	else
-		printf("%s\n", s);
+		printf("%s", s);
 
 	va_end(inumbers);
+	printf("\n");
 }

@@ -84,7 +84,7 @@ void print_s(va_list copy)
 {
 	char *va = va_arg(copy, char *);
 
-	if (va == NULL)
+	if (*va == '\0')
 	{
 		printf("(nil)");
 		return;

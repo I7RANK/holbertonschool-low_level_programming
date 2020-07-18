@@ -35,6 +35,7 @@ void print_all(const char * const format, ...)
 				printf("%s", sepa);
 				(select[j].p)(valist);
 				sepa = ", ";
+				break;
 			}
 			j++;
 		}

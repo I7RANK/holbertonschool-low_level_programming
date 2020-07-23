@@ -3,7 +3,6 @@
 /**
  * free_list - frees a list_t list
  * @head: the pointer to the head
- * @str: is a string to add
  *
  * Return: na
  */

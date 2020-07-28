@@ -8,11 +8,12 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	const listint_t *temp;
+	const listint_t *temp = NULL;
 	int i;
 
-	if (h != NULL)
-		temp = h;
+	if (h == NULL)
+		return (0);
+	temp = h;
 
 	for (i = 0; temp; i++)
 	{

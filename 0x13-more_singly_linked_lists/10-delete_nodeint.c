@@ -3,7 +3,7 @@
 /**
  * delete_nodeint_at_index - deletes a node at a given position
  * @head: is the header of the linked list
- * @idx: is the index of the node, starting at 0
+ * @index: is the index of the node, starting at 0
  *
  * Return: the address of the new node, or NULL if it failed
  */
@@ -16,7 +16,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 
 	temp = *head;
-
 	if (index == 0)
 	{
 		if (temp->next == NULL)
@@ -49,6 +48,5 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		address = temp;
 		temp = temp->next;
 	}
-
 	return (-1);
 }

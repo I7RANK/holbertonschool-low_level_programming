@@ -11,6 +11,9 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int finder = 1, num = 0;
 	int i;
 
+	if (b == NULL)
+		return (0);
+
 	for (i = 0; b[i]; i++)
 	{}
 

@@ -21,12 +21,9 @@ int create_file(const char *filename, char *text_content)
 	for (len = 0; text_content[len]; len++)
 	{}
 
-	if (text_content != NULL)
-	{
-		lwr = write(fd, text_content, len);
-		if (lwr < 0)
-			return (-1);
-	}
+	lwr = write(fd, text_content, len);
+	if (lwr < 0)
+		return (-1);
 
 	close(fd);
 

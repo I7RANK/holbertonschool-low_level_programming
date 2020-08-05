@@ -1,9 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "holberton.h"
 
 #define BUF1024 (1024)
 #define FILE_USAGE "Usage: cp file_from file_to\n"
@@ -22,53 +17,36 @@ int main(int argc, char **argv)
 	char buff[BUF1024];
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, FILE_USAGE);
-		exit(97);
-	}
+		dprintf(STDERR_FILENO, FILE_USAGE), exit(97);
+
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
-	{
-		dprintf(STDERR_FILENO, READ_ERR, argv[1]);
-		exit(98);
-	}
+		dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
+
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		from_close = close(fd_from);
 		if (from_close)
-		{
-			dprintf(STDERR_FILENO, ERR_100, fd_from);
-			exit(100);
-		}
-		dprintf(STDERR_FILENO, WRITE_ERR, argv[2]);
-		exit(99);
+			dprintf(STDERR_FILENO, ERR_100, fd_from), exit(100);
+		dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
 	}
-	while ((from_read = read(fd_from, buff, BUF1024)) > 0)
+
+	while ((from_read = read(fd_from, buff, BUF1024)) != 0)
 	{
 		if (from_read == -1)
-		{
-			dprintf(STDERR_FILENO, READ_ERR, argv[1]);
-			exit(98);
-		}
+			dprintf(STDERR_FILENO, READ_ERR, argv[1]), exit(98);
 		to_write = write(fd_to, buff, from_read);
 		if (to_write == -1)
-		{
-			dprintf(STDERR_FILENO, WRITE_ERR, argv[2]);
-			exit(99);
-		}
+			dprintf(STDERR_FILENO, WRITE_ERR, argv[2]), exit(99);
 	}
+
 	from_close = close(fd_from);
 	if (from_close)
-	{
-		dprintf(STDERR_FILENO, ERR_100, fd_from);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, ERR_100, fd_from), exit(100);
+
 	to_close = close(fd_to);
 	if (to_close == -1)
-	{
-		dprintf(STDERR_FILENO, ERR_100, fd_to);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, ERR_100, fd_to), exit(100);
 	return (0);
 }

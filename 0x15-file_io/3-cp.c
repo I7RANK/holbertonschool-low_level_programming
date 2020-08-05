@@ -11,7 +11,7 @@ void _close(int fd);
  */
 int main(int ac, char **av)
 {
-	int f1 = 0, f2 = 0, len1 = 0, lwr = 0;
+	int f1 = 0, f2 = 0, len1 = 1, lwr = 0;
 	char *buff[1024];
 
 	if (ac != 3)
@@ -34,18 +34,24 @@ int main(int ac, char **av)
 		return (99);
 	}
 
-	len1 = read(f1, buff, 1024);
-	if (len1 < 0)
+	while (len1 != 0)
 	{
-		dprintf(2, "Error: Can't read from file %s", av[1]);
-		return (98);
-	}
+		len1 = read(f1, buff, 1024);
+		if (len1 < 0)
+		{
+			dprintf(2, "Error: Can't read from file %s", av[1]);
+			return (98);
+		}
 
-	lwr = write(f2, buff, len1);
-	if (lwr < 0)
-	{
-		dprintf(2, "Error: Can't write to %s", av[2]);
-		return (99);
+		if (len1 > 0)
+		{
+			lwr = write(f2, buff, len1);
+			if (lwr < 0)
+			{
+				dprintf(2, "Error: Can't write to %s", av[2]);
+				return (99);
+			}
+		}
 	}
 
 	_close(f1);

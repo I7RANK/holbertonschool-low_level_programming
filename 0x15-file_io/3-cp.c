@@ -12,7 +12,7 @@ void _close(int fd);
 int main(int ac, char **av)
 {
 	int f1 = 0, f2 = 0, len1 = 1, lwr = 0;
-	char *buff[1024];
+	char buff[1024];
 
 	if (ac != 3)
 	{

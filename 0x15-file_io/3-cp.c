@@ -68,7 +68,9 @@ int main(int ac, char **av)
  */
 void _close(int fd)
 {
-	if (close(fd) < 0)
+	int lclos = close(fd);
+
+	if (lclos < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);

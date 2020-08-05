@@ -17,21 +17,21 @@ int main(int ac, char **av)
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		return (97);
+		exit(97);
 	}
 
 	f1 = open(av[1], O_RDONLY);
 	if (f1 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
-		return (98);
+		exit(98);
 	}
 
 	f2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (f2 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		return (99);
+		exit(99);
 	}
 
 	while (len1)
@@ -40,7 +40,7 @@ int main(int ac, char **av)
 		if (len1 < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s", av[1]);
-			return (98);
+			exit(98);
 		}
 
 		if (len1 > 0)
@@ -49,7 +49,7 @@ int main(int ac, char **av)
 			if (lwr < 0)
 			{
 				dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-				return (99);
+				exit(99);
 			}
 		}
 	}

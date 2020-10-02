@@ -56,7 +56,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 hash_node_t *new_node(const char *key, const char *value)
 {
 	hash_node_t *new_node = NULL;
-	int i;
 
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
@@ -64,28 +63,30 @@ hash_node_t *new_node(const char *key, const char *value)
 		return (NULL);
 	}
 
-	for (i = 0; key[i]; i++)
+	/* for (i = 0; key[i]; i++)
 	{}
 
-	new_node->key = malloc(sizeof(char) * i + 1);
+	new_node->key = malloc(sizeof(char) * i + 1); */
+	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
 		free(new_node);
 		return (NULL);
 	}
-	_strcpy(new_node->key, (char *)key);
+	/* _strcpy(new_node->key, (char *)key); */
 
-	for (i = 0; value[i]; i++)
+	/* for (i = 0; value[i]; i++)
 	{}
 
-	new_node->value = malloc(sizeof(char) * i + 1);
+	new_node->value = malloc(sizeof(char) * i + 1); */
+	new_node->value = strdup(value);
 	if (new_node->value == NULL)
 	{
 		free(new_node->key);
 		free(new_node);
 		return (NULL);
 	}
-	_strcpy(new_node->value, (char *)value);
+	/* _strcpy(new_node->value, (char *)value); */
 
 	new_node->next = NULL;
 

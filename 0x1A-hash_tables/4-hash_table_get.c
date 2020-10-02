@@ -10,9 +10,10 @@
 */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
+	hash_node_t *temp = NULL;
 	unsigned long index;
 
-	if (ht == NULL || key == NULL)
+	if (ht == NULL || key == NULL || ht->array == NULL)
 	{
 		return (NULL);
 	}
@@ -24,5 +25,15 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 	}
 
-	return (ht->array[index]->value);
+	temp = ht->array[index];
+	while (temp)
+	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			return (temp->value);
+		}
+		temp = temp->next;
+	}
+
+	return (NULL);
 }

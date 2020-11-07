@@ -20,7 +20,6 @@ def island_perimeter(grid):
 
     for i in range(y):
         for j in range(x):
-            """ print(grid[i][j], end=", ") """
             if grid[i][j] == 1:
                 """ up """
                 try:
@@ -38,7 +37,9 @@ def island_perimeter(grid):
 
                 """ left """
                 try:
-                    if grid[i][j-1] == 0:
+                    if (j - 1) < 0:
+                        perimeter += 1
+                    elif grid[i][j - 1] == 0:
                         perimeter += 1
                 except IndexError:
                     perimeter += 1

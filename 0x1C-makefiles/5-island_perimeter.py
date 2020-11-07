@@ -27,27 +27,27 @@ def island_perimeter(grid):
                     if grid[i-1][j] == 0:
                         perimeter += 1
                 except IndexError:
-                    pass
+                    perimeter += 1
 
                 """ down """
                 try:
                     if grid[i+1][j] == 0:
                         perimeter += 1
                 except IndexError:
-                    pass
+                    perimeter += 1
 
                 """ left """
                 try:
                     if grid[i][j-1] == 0:
                         perimeter += 1
                 except IndexError:
-                    pass
+                    perimeter += 1
 
                 """ right """
                 try:
                     if grid[i][j+1] == 0:
                         perimeter += 1
                 except IndexError:
-                    pass
+                    perimeter += 1
 
     return perimeter

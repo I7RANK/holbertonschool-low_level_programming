@@ -25,11 +25,7 @@ int binary_search(int *array, size_t size, int value)
 	while (1)
 	{
 		if (start > end)
-		{
-			start = end;
-			print_subarray(array, start, end);
 			return (-1);
-		}
 
 		print_subarray(array, start, end);
 
@@ -41,15 +37,13 @@ int binary_search(int *array, size_t size, int value)
 		else if (value < middle_num)
 		{
 			end = sub_index - 1;
-			sub_size = sub_index - 1;
 		}
 		else if (value > middle_num)
 		{
 			start = sub_index + 1;
-			sub_size = sub_index;
 		}
 
-		/* sleep(1); */
+		sub_size = end - start;
 	}
 
 	return (-1);

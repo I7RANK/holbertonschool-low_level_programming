@@ -23,6 +23,26 @@ int advanced_binary(int *array, size_t size, int value)
 	if (array == NULL)
 		return (-1);
 
+	/* NO IS THE BEST WAY */
+	if (size == 1)
+	{
+		print_subarray(array, 0, size - 1);
+		if (array[0] == value)
+			return (0);
+		return (-1);
+	}
+
+	if (size == 2)
+	{
+		print_subarray(array, 0, size - 1);
+		if (array[0] == value)
+			return (0);
+		print_subarray(array, 1, size - 1);
+		if (array[1] == value)
+			return (1);
+		return (-1);
+	}
+
 	advanced_search(array, 0, size - 1, value, &idx);
 	return (idx);
 }
@@ -64,9 +84,6 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 
 	print_subarray(arr, start, end);
 
-	if (start >= end)
-		return;
-
 	if (val == middle_num)
 	{
 		*idx = index;
@@ -85,6 +102,8 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 			return;
 		}
 	}
+	if (start >= end)
+		return;
 
 	advanced_search(arr, start, end, val, idx);
 }

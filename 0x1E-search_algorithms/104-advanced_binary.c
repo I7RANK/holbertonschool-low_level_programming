@@ -18,44 +18,13 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx);
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	unsigned int start = 0, end = size - 1;
-	unsigned int sub_index, sub_size = size - 1;
-	int middle_num, idx;
+	int idx = -1;
 
 	if (array == NULL)
 		return (-1);
 
-	while (1)
-	{
-		if (start > end)
-			return (-1);
-
-		print_subarray(array, start, end);
-
-		sub_index = (sub_size / 2) + start;
-		middle_num = array[sub_index];
-
-		if (middle_num == value)
-		{
-			idx = sub_index;
-			end = sub_index;
-			if (idx > (int)start)
-				advanced_search(array, start, end, value, &idx);
-			return (idx);
-		}
-		else if (value < middle_num)
-		{
-			end = sub_index - 1;
-		}
-		else if (value > middle_num)
-		{
-			start = sub_index + 1;
-		}
-
-		sub_size = end - start;
-	}
-
-	return (-1);
+	advanced_search(array, 0, size - 1, value, &idx);
+	return (idx);
 }
 
 /**
@@ -93,7 +62,7 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 	size_t index = (size / 2) + start;
 	int middle_num = arr[index];
 
-	if (start > end)
+	if (start >= end)
 		return;
 
 	print_subarray(arr, start, end);
@@ -101,7 +70,7 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 	if (val == middle_num)
 	{
 		*idx = index;
-		end = index - 1;
+		end = index;
 	}
 	if (val < middle_num)
 	{
@@ -110,6 +79,11 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 	else if (val > middle_num)
 	{
 		start = index + 1;
+		if (start >= end)
+		{
+			print_subarray(arr, start, end);
+			return;
+		}
 	}
 
 	advanced_search(arr, start, end, val, idx);

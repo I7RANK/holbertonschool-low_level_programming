@@ -78,7 +78,6 @@ void print_subarray(int *array, size_t start, size_t end)
  */
 void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 {
-	size_t size = end - start;
 	size_t index = start + (end - start) / 2;
 	int middle_num = arr[index];
 

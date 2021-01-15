@@ -29,16 +29,10 @@ int jump_search(int *array, size_t size, int value)
 		jump2 += to_jump;
 
 		if (jump2 > size - 1)
-		{
-			printf(str_found, (int)jump1, (int)jump2);
-			return (check_subarray(array, jump1, value, size));
-		}
+			break;
 
 		if (array[jump2] >= value)
-		{
-			printf(str_found, (int)jump1, (int)jump2);
-			return (check_subarray(array, jump1, value, size));
-		}
+			break;
 
 		printf(
 			"Value checked array[%d] = [%d]\n",
@@ -47,10 +41,10 @@ int jump_search(int *array, size_t size, int value)
 		);
 
 		jump1 = jump2;
-
 	}
 
-	return (-1);
+	printf(str_found, (int)jump1, (int)jump2);
+	return (check_subarray(array, jump1, value, size));
 }
 
 /**
@@ -67,11 +61,7 @@ size_t check_subarray(int *array, size_t jump1, int value, size_t size)
 {
 	while (jump1 < size)
 	{
-		printf(
-			"Value checked array[%d] = [%d]\n",
-			(int)jump1,
-			array[jump1]
-		);
+		printf("Value checked array[%d] = [%d]\n", (int)jump1, array[jump1]);
 
 		if (array[jump1] == value)
 			return (jump1);

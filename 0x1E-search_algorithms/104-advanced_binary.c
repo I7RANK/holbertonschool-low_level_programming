@@ -82,6 +82,13 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 	size_t index = (size / 2) + start;
 	int middle_num = arr[index];
 
+	if (start >= end)
+	{
+		if (val == middle_num)
+			*idx = index;
+		return;
+	}
+
 	print_subarray(arr, start, end);
 
 	if (val == middle_num)
@@ -97,13 +104,8 @@ void advanced_search(int *arr, size_t start, size_t end, int val, int *idx)
 	{
 		start = index + 1;
 		if (start >= end)
-		{
 			print_subarray(arr, start, end);
-			return;
-		}
 	}
-	if (start >= end)
-		return;
 
 	advanced_search(arr, start, end, val, idx);
 }
